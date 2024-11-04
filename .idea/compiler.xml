@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="authService" target="17" />
+      <module name="customerService" target="17" />
+      <module name="dataService" target="17" />
+      <module name="foodDelivery" target="17" />
+      <module name="orderService" target="17" />
+      <module name="reportService" target="17" />
+      <module name="restaurantService" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
