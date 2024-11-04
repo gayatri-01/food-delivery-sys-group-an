@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1873f7d-e0b4-49b7-9293-4f2e02bea916" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/classmate-1.7.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-validator-8.0.1.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/jakarta.persistence-api-3.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/jakarta.validation-api-3.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/jaxb-api-2.3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-logging-3.5.3.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-validation-3.3.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/surefire-reports/2024-11-04T23-22-34_912.dumpstream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/surefire-reports/TEST-com.group.an.authService.authServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/surefire-reports/TEST-com.group.an.authService.authServiceApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/surefire-reports/com.group.an.authService.authServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/surefire-reports/com.group.an.authService.authServiceApplicationTests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/src/main/java/com/group/an/customerService/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/customerService/src/main/java/com/group/an/customerService/service/CustomerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/classmate-1.7.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-validator-8.0.1.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/jakarta.persistence-api-3.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/jakarta.validation-api-3.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/jaxb-api-2.3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-logging-3.5.3.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-validation-3.3.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/surefire-reports/2024-11-04T23-22-34_912.dumpstream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/surefire-reports/TEST-com.group.an.dataService.DataServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/surefire-reports/TEST-com.group.an.dataService.DataServiceApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/surefire-reports/com.group.an.dataService.DataServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/surefire-reports/com.group.an.dataService.DataServiceApplicationTests.txt" afterDir="false" />
-    </list>
+    <list default="true" id="e1873f7d-e0b4-49b7-9293-4f2e02bea916" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
