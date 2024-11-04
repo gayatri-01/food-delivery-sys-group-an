@@ -100,13 +100,16 @@ public class CustomerServiceImpl implements CustomerService {
         if(customer.isPresent()){
             Customer originalCustomer = customer.get();
             List<CartItem> originalCartItems = originalCustomer.getCart();
+            CartItem tempCartItem = new CartItem();
             for (int i=0; i<originalCartItems.size(); i++) {
                 if(originalCartItems.get(i).getCartItemId() == cartItemId){
+                    tempCartItem = originalCartItems.get(i);
                     originalCartItems.remove(i);
                     i--;
                 }
             }
-
+            originalCustomer.setCart(originalCartItems);
+            return tempCartItem;
         }
         return null;
     }
