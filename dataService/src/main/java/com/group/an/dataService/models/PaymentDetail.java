@@ -7,15 +7,19 @@ import java.util.Date;
 
 public class PaymentDetail {
     @Id
-    private int paymentId;
+    private int paymentDetailId;
     private String cardType;
     private String cardNumber;
     private LocalDateTime cardExpiry;
-    private long upiNumber;
+    private Long upiNumber;
     private String upiId;
 
-    public PaymentDetail(int paymentId, String cardType, String cardNumber, LocalDateTime cardExpiry, long upiNumber, String upiId) {
-        this.paymentId = paymentId;
+    public PaymentDetail(){
+
+    }
+
+    public PaymentDetail(int paymentDetailId, String cardType, String cardNumber, LocalDateTime cardExpiry, Long upiNumber, String upiId) {
+        this.paymentDetailId = paymentDetailId;
         this.cardType = cardType;
         this.cardNumber = cardNumber;
         this.cardExpiry = cardExpiry;
@@ -23,12 +27,12 @@ public class PaymentDetail {
         this.upiId = upiId;
     }
 
-    public int getPaymentId() {
-        return paymentId;
+    public int getPaymentDetailId() {
+        return paymentDetailId;
     }
 
-    public void setPaymentId(int paymentId) {
-        this.paymentId = paymentId;
+    public void setPaymentDetailId(int paymentDetailId) {
+        this.paymentDetailId = paymentDetailId;
     }
 
     public String getCardType() {
@@ -55,11 +59,11 @@ public class PaymentDetail {
         this.cardExpiry = cardExpiry;
     }
 
-    public long getUpiNumber() {
+    public Long getUpiNumber() {
         return upiNumber;
     }
 
-    public void setUpiNumber(long upiNumber) {
+    public void setUpiNumber(Long upiNumber) {
         this.upiNumber = upiNumber;
     }
 

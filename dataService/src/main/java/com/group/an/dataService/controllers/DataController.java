@@ -68,12 +68,12 @@ public class DataController {
 
     // Add & Get Customer
     @PostMapping("/customer")
-    public Customers addCustomer(@RequestBody Customers customer) {
+    public Customer addCustomer(@RequestBody Customer customer) {
         return customersRepository.save(customer);
     }
 
     @GetMapping("/customer")
-    public List<Customers> getAllCustomers(){
+    public List<Customer> getAllCustomers(){
         return customersRepository.findAll();
     }
 

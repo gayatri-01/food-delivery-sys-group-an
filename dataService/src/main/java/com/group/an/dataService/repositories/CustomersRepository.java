@@ -1,7 +1,7 @@
 package com.group.an.dataService.repositories;
 
-import com.group.an.dataService.models.Customers;
+import com.group.an.dataService.models.Customer;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface CustomersRepository extends MongoRepository <Customers,Integer> {
+public interface CustomersRepository extends MongoRepository <Customer,Integer> {
 }

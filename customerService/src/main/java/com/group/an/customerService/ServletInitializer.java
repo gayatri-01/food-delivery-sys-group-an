@@ -1,5 +1,6 @@
 package com.group.an.customerService;
 
+import com.group.an.customerService.CustomerServiceApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
