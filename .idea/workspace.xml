@@ -5,30 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1873f7d-e0b4-49b7-9293-4f2e02bea916" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/customerService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/src/main/java/com/group/an/customerService/CustomerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/src/main/java/com/group/an/customerService/CustomerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/customerService/src/main/java/com/group/an/customerService/CustomerServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/src/main/java/com/group/an/customerService/ServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/customerService/src/main/java/com/group/an/customerService/ServletInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/customerService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/src/test/java/com/group/an/customerService/CustomerServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/customerService/src/test/java/com/group/an/customerService/CustomerServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/target/classes/com/group/an/customerService/CustomerServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/target/classes/com/group/an/customerService/ServletInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/target/classes/com/group/an/customerService/controller/CustomerController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/target/classes/com/group/an/customerService/entity/CartItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/target/classes/com/group/an/customerService/entity/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/target/classes/com/group/an/customerService/entity/PaymentDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/target/classes/com/group/an/customerService/repository/CustomerRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/target/classes/com/group/an/customerService/service/CustomerService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerService/target/classes/com/group/an/customerService/service/CustomerServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/src/main/java/com/group/an/dataService/controllers/DataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/src/main/java/com/group/an/dataService/controllers/DataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/src/main/java/com/group/an/dataService/models/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/src/main/java/com/group/an/dataService/models/CartItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/src/main/java/com/group/an/dataService/models/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/src/main/java/com/group/an/dataService/models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/src/main/java/com/group/an/dataService/models/PaymentDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/src/main/java/com/group/an/dataService/models/PaymentDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/src/main/java/com/group/an/dataService/repositories/CustomersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/src/main/java/com/group/an/dataService/repositories/CustomersRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/classmate-1.7.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-validator-8.0.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/jakarta.persistence-api-3.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/jakarta.validation-api-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/jaxb-api-2.3.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-logging-3.5.3.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-validation-3.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/surefire-reports/2024-11-04T23-22-34_912.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/surefire-reports/TEST-com.group.an.authService.authServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/surefire-reports/TEST-com.group.an.authService.authServiceApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authService/target/surefire-reports/com.group.an.authService.authServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/surefire-reports/com.group.an.authService.authServiceApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customerService/src/main/java/com/group/an/customerService/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/customerService/src/main/java/com/group/an/customerService/service/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/classmate-1.7.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-validator-8.0.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/jakarta.persistence-api-3.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/jakarta.validation-api-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/jaxb-api-2.3.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-logging-3.5.3.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-validation-3.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/surefire-reports/2024-11-04T23-22-34_912.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/surefire-reports/TEST-com.group.an.dataService.DataServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/surefire-reports/TEST-com.group.an.dataService.DataServiceApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataService/target/surefire-reports/com.group.an.dataService.DataServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/surefire-reports/com.group.an.dataService.DataServiceApplicationTests.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +88,19 @@
   }
 }</component>
   <component name="RunManager">
+    <configuration name="CustomerServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.group.an.customerService.CustomerServiceApplication" />
+      <module name="customerService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.group.an.customerService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="food-delivery-sys-group-an" />
       <method v="2">
@@ -96,6 +114,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CustomerServiceApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

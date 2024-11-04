@@ -22,13 +22,11 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     public Customer saveCustomer(Customer customer) {
-        System.out.println("Entered save customer method");
         if(Objects.nonNull(customer.getName()) && !"".equalsIgnoreCase(customer.getName()) &&
                 Objects.nonNull(customer.getEmail()) && !"".equalsIgnoreCase(customer.getEmail()) &&
                 Objects.nonNull(customer.getPasswordHash()) && !"".equalsIgnoreCase(customer.getPasswordHash()) &&
                 Objects.nonNull(customer.getContactNumber()) && (customer.getContactNumber().toString().length()==10) &&
                 Objects.nonNull(customer.getDeliveryAddress()) && !"".equalsIgnoreCase(customer.getDeliveryAddress())) {
-            System.out.println("Customer Saved Successfully");
             return customerRepository.save(customer);
         }
 
