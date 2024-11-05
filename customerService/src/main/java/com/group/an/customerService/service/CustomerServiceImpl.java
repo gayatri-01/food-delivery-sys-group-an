@@ -94,6 +94,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
 
+    //to delete a cart item by customer id and cart id
     public CartItem deleteCartItemById(int customerId, int cartItemId) {
         Optional<Customer> customer = customerRepository.findById((long) customerId);
         if(customer.isPresent()){
