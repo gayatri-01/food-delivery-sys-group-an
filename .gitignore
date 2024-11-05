@@ -2,3 +2,4 @@ authService/*
 dataService/*
 customerService/target/*
 .idea/workspace.xml
+.idea/*
