@@ -1,0 +1,58 @@
+# Maven
+target/
+*.log
+*.jar
+*.war
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+tmp/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Visual Studio Code
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Java class files
+*.class
+
+# Logs
+logs/
+*.log
+
+# Spring Boot
+application-*.yml
+application-*.properties
+
+# IDE specific files
+*.swp
+*.swo
+
+# Other
+*.hprof
+*.stackdump
+*.gz
+*.zip
+*.tar
+*.rar
+*.tar.gz
+*.tgz
+*.egg-info/
+__pycache__/
+*.egg
+
+# JAR files
+*.jar
+
+# Distribution files
+dist/
