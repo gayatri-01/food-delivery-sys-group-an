@@ -8,11 +8,9 @@ import com.group.an.dataService.models.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -95,6 +93,7 @@ public class CustomerServiceImpl implements CustomerService {
         return List.of();
     }
 
+
     public CartItem deleteCartItemById(int customerId, int cartItemId) {
         Optional<Customer> customer = customerRepository.findById((long) customerId);
         if(customer.isPresent()){
@@ -109,6 +108,7 @@ public class CustomerServiceImpl implements CustomerService {
                 }
             }
             originalCustomer.setCart(originalCartItems);
+            customerRepository.save(originalCustomer);
             return tempCartItem;
         }
         return null;
