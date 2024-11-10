@@ -6,7 +6,7 @@
 		<groupId>com.group.an</groupId>
 		<artifactId>foodDelivery</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.group.an</groupId>
 	<artifactId>orderService</artifactId>
@@ -40,6 +40,7 @@
 			<groupId>com.group.an</groupId>
 			<artifactId>authService</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+			<classifier>classes</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>

@@ -6,12 +6,12 @@
 		<groupId>com.group.an</groupId>
 		<artifactId>foodDelivery</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.group.an</groupId>
 	<artifactId>dataService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>dataService</name>
 	<description>App that delivers food</description>
 	<url/>
