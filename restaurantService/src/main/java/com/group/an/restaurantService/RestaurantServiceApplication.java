@@ -20,8 +20,7 @@ public class RestaurantServiceApplication {
 		SpringApplication.run(RestaurantServiceApplication.class, args);
 	}
 	@Bean
-	@Profile("auth")
-	public OpenAPI customOpenAPI() {
+	public OpenAPI customOpenAPIForRestaurant() {
 		return new OpenAPI()
 				.info(new Info()
 						.title("RestaurantService API Documentation")
