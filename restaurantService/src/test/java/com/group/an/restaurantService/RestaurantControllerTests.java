@@ -57,13 +57,13 @@ public class RestaurantControllerTests {
     @Test
     void testAddItemToMenuOfRestaurant() {
         ResponseEntity<Restaurant> response = restaurantController.addItemToMenuOfRestaurant(new MenuItem(),1);
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
     }
 
     @Test
     void testUpdateItemOfMenuOfRestaurant() {
         ResponseEntity<Restaurant> response = restaurantController.updateMenuItemOfRestaurant(new MenuItem(),1, 1);
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
     }
 
     @Test
