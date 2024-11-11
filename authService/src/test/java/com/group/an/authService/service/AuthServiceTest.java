@@ -77,7 +77,7 @@ class AuthServiceTest {
         customer.setName("John Doe");
         customer.setEmail("john.doe@example.com");
         customer.setPasswordHash(new BCryptPasswordEncoder().encode("password"));
-        customer.setContactNumber(1234567890);
+        customer.setContactNumber(1234567890L);
         customer.setDeliveryAddress("123 Main St");
         customer.setActive(true);
 
