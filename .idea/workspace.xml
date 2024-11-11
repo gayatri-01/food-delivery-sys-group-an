@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1873f7d-e0b4-49b7-9293-4f2e02bea916" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/authService-0.0.1-SNAPSHOT.war.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/surefire-reports/TEST-com.group.an.authService.authServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/surefire-reports/TEST-com.group.an.authService.authServiceApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authService/target/surefire-reports/com.group.an.authService.authServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/authService/target/surefire-reports/com.group.an.authService.authServiceApplicationTests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/dataService-0.0.1-SNAPSHOT.war.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/surefire-reports/TEST-com.group.an.dataService.DataServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/surefire-reports/TEST-com.group.an.dataService.DataServiceApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataService/target/surefire-reports/com.group.an.dataService.DataServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dataService/target/surefire-reports/com.group.an.dataService.DataServiceApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customerService/src/main/java/com/group/an/customerService/CustomerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/customerService/src/main/java/com/group/an/customerService/CustomerServiceApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,31 +35,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.CustomerServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.DataServiceApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.DataServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.com.group.an.customerService.CustomerServiceApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.customerService.src.main.java.com.group.an.customerService.CustomerServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.customerService [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.customerService [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.foodDelivery [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.foodDelivery [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.foodDelivery [package].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature2&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Code/food-delivery-sys-group-an&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.CustomerServiceApplication.executor": "Run",
+    "Application.DataServiceApplication (1).executor": "Run",
+    "Application.DataServiceApplication.executor": "Run",
+    "Application.com.group.an.customerService.CustomerServiceApplication.executor": "Debug",
+    "Application.customerService.src.main.java.com.group.an.customerService.CustomerServiceApplication.executor": "Run",
+    "Maven.customerService [clean].executor": "Run",
+    "Maven.customerService [package].executor": "Run",
+    "Maven.foodDelivery [clean].executor": "Run",
+    "Maven.foodDelivery [install].executor": "Run",
+    "Maven.foodDelivery [package].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature/customer-service",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Code/food-delivery-sys-group-an",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "MavenSettings"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="CustomerServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.group.an.customerService.CustomerServiceApplication" />
