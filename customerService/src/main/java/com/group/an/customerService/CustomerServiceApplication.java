@@ -26,7 +26,7 @@ public class CustomerServiceApplication {
 				.info(new Info()
 						.title("CustomerService API Documentation")
 						.version("1.0")
-						.description("APIs for Managing Customers in the Food Delivery System"))
+						.description("APIs for Managing Customers in the Food Delivery System"));
 	}
 
 }
