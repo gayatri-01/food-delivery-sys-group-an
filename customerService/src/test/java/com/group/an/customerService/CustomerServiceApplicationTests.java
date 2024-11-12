@@ -1,13 +1,13 @@
-//package com.group.an.customerService;
+package com.group.an.customerService;
 
-//import org.junit.jupiter.api.Test;
-//import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-//@SpringBootTest
-//class CustomerServiceApplicationTests {
+@SpringBootTest
+class CustomerServiceApplicationTests {
 
-//	@Test
-//	void contextLoads() {
-//	}
+	@Test
+	void contextLoads() {
+	}
 
-//}
+}

@@ -2,11 +2,14 @@ package com.group.an.customerService.service;
 
 //import com.group.an.customerService.entity.CartItem;
 //import com.group.an.customerService.entity.Customer;
+import com.group.an.authService.security.JwtTokenUtil;
 import com.group.an.customerService.repository.CustomerRepository;
 import com.group.an.dataService.models.CartItem;
 import com.group.an.dataService.models.Customer;
+import com.group.an.dataService.models.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,16 +35,31 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public List<Customer> fetchAllCustomers() {
+        Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
+        Role role = JwtTokenUtil.getRoleFromAuthContext();
+        if(!role.equals(Role.ADMIN)){
+            throw new AccessDeniedException("You are not authorized. Only Admins can perform this.");
+        }
         return customerRepository.findAll();
     }
 
     public Optional<Customer> getCustomerById(int customerId) {
+        Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
+        Role role = JwtTokenUtil.getRoleFromAuthContext();
+        if (!userId.equals(customerId)){
+            throw new AccessDeniedException("You are not authorized. You can view details only for your customer id : "+ userId);
+        }
         return customerRepository.findById((long)customerId);
     }
 
     public Customer updateCustomerById(int customerId, Customer customer) {
         Optional<Customer> customer1 = customerRepository.findById((long) customerId);
         if(customer1.isPresent()){
+            Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
+            Role role = JwtTokenUtil.getRoleFromAuthContext();
+            if (!userId.equals(customerId)){
+                throw new AccessDeniedException("You are not authorized. You can update only your details");
+            }
             Customer originalCustomer = customer1.get();
             //if(originalCustomer.getActive()){
                 if(Objects.nonNull(customer.getName()) && !"".equalsIgnoreCase(customer.getName())){
@@ -75,6 +93,11 @@ public class CustomerServiceImpl implements CustomerService {
     public List<CartItem> viewCustomerCart(int customerId) {
         Optional<Customer> customer = customerRepository.findById((long) customerId);
         if(customer.isPresent()){
+            Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
+            Role role = JwtTokenUtil.getRoleFromAuthContext();
+            if (!userId.equals(customerId)){
+                throw new AccessDeniedException("You are not authorized. You can view only your cart");
+            }
             Customer targetCustomer = customer.get();
             return targetCustomer.getCart();
         }
@@ -84,6 +107,11 @@ public class CustomerServiceImpl implements CustomerService {
     public List<CartItem> addCustomerCart(int customerId, List<CartItem> cartItems) {
         Optional<Customer> customer = customerRepository.findById((long) customerId);
         if(customer.isPresent()){
+            Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
+            Role role = JwtTokenUtil.getRoleFromAuthContext();
+            if (!userId.equals(customerId)){
+                throw new AccessDeniedException("You are not authorized. You can add to only your cart");
+            }
             Customer originalCustomer = customer.get();
             List<CartItem> originalCartItems = originalCustomer.getCart();
             //Arrays.stream(originalCustomer.getCart()).toList().add(cartItems.get(i));
@@ -98,6 +126,11 @@ public class CustomerServiceImpl implements CustomerService {
     public CartItem deleteCartItemById(int customerId, int cartItemId) {
         Optional<Customer> customer = customerRepository.findById((long) customerId);
         if(customer.isPresent()){
+            Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
+            Role role = JwtTokenUtil.getRoleFromAuthContext();
+            if (!userId.equals(customerId)){
+                throw new AccessDeniedException("You are not authorized. You can delete only from your cart");
+            }
             Customer originalCustomer = customer.get();
             List<CartItem> originalCartItems = originalCustomer.getCart();
             CartItem tempCartItem = new CartItem();
