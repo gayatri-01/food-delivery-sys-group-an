@@ -18,6 +18,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,14 +37,47 @@ public class ReportController {
 
 	@GetMapping("/popular-restaurants")
 	public ResponseEntity<List<Restaurant>> getPopularRestaurants() {
-		List<Restaurant> allRestaurants = restaurantRepository.findAll();
+		List<Restaurant> allRestaurants = restaurantRepository.findTop5ByOrderByUserRatingsDesc();
 		return new ResponseEntity<>(allRestaurants, HttpStatus.OK);
 	}
 
 	@GetMapping("/delivery-time")
-	public ResponseEntity<Double> getAverageDeliveryTime() {
-		List<Order> allRestaurants = orderRepository.findAll();
-		return new ResponseEntity<>(2.0, HttpStatus.OK);
+	public ResponseEntity<Long> getAverageDeliveryTime() {
+		List<Order> allOrders = orderRepository.findAll();
+		Duration duration = Duration.ZERO;
+		Duration avgDuration = Duration.ZERO;
+		for(Order order : allOrders) {
+			if((order.getOrderedAt() != null) && (order.getDeliveredAt() !=null)) {
+				duration = duration.plus(Duration.between(order.getOrderedAt(), order.getDeliveredAt()));
+			}
+		}
+		avgDuration = duration.dividedBy(allOrders.size());
+
+		return new ResponseEntity<>(avgDuration.getSeconds(), HttpStatus.OK);
+	}
+
+	@GetMapping("/order-trends")
+	public ResponseEntity<OrderTrend> getOrderTrends(@RequestParam(name = "startDate") LocalDateTime startDate,
+														   @RequestParam(name = "endDate") LocalDateTime endDate) {
+		OrderTrend orderTrend = new OrderTrend();
+		List<Order> allOrders = orderRepository.findAll();
+		int orderCount = 0;
+		Double totalRevenue = 0.0;
+		Double avgOrderValue = 0.0;
+		for(Order order : allOrders) {
+			LocalDateTime orderDate = order.getOrderedAt();
+			if((orderDate.isEqual(startDate) || orderDate.isAfter(startDate)) &&
+					(orderDate.isEqual(endDate) || orderDate.isBefore(endDate))) {
+				orderCount ++;
+				totalRevenue += order.getPrice();
+			}
+		}
+		avgOrderValue = totalRevenue/orderCount;
+
+		orderTrend.setOrderCount(orderCount);
+		orderTrend.setTotalRevenue(totalRevenue);
+		orderTrend.setAverageOrderValue(avgOrderValue);
+		return new ResponseEntity<>(orderTrend, HttpStatus.OK);
 	}
 
 	@GetMapping("/")
@@ -54,5 +89,10 @@ public class ReportController {
 		else if(null != orderStatus)
 			allOrders = orderRepository.findByOrderStatus(OrderStatus.valueOf(orderStatus));
 		return new ResponseEntity<>(allOrders, HttpStatus.OK);
+	}
+
+	@GetMapping("/health")
+	public ResponseEntity<String> getAppHealth() {
+		return new ResponseEntity<>("UP", HttpStatus.OK);
 	}
 }
