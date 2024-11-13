@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ import java.util.Optional;
 
 @RestController
 @SecurityRequirement(name = "jwtAuth")
+@RequestMapping("/customers")
 public class CustomerController {
 
     @RequestMapping("/hello")
@@ -81,8 +83,9 @@ public class CustomerController {
             @ApiResponse(responseCode = "401", description = "Unauthorized"),
             @ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
     })
-    public Customer saveCustomer(@RequestBody Customer customer){
-        return customerService.saveCustomer(customer);
+    public ResponseEntity<Customer> saveCustomer(@RequestBody Customer customer){
+        Customer customer1 = customerService.saveCustomer(customer);
+        return new ResponseEntity<>(customer1, HttpStatus.CREATED);
     }
 
     @GetMapping("/customers")
@@ -93,8 +96,9 @@ public class CustomerController {
             @ApiResponse(responseCode = "401", description = "Unauthorized"),
             @ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
     })
-    public List<Customer> fetchAllCustomers(){
-        return customerService.fetchAllCustomers();
+    public ResponseEntity<List<Customer>> fetchAllCustomers(){
+        List<Customer> customers = customerService.fetchAllCustomers();
+        return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
     @GetMapping("/customers/{customerId}")
@@ -106,8 +110,9 @@ public class CustomerController {
             @ApiResponse(responseCode = "404", description = "Customer not found"),
          @ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
     })
-    public Optional<Customer> getCustomerById(@PathVariable("customerId") int customerId){
-        return customerService.getCustomerById(customerId);
+    public ResponseEntity<Optional<Customer>> getCustomerById(@PathVariable("customerId") int customerId){
+        Optional<Customer> customer = customerService.getCustomerById(customerId);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
     @PostMapping("/customers/{customerId}")
@@ -161,8 +166,9 @@ public class CustomerController {
             @ApiResponse(responseCode = "401", description = "Unauthorized"),
             @ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
     })
-    public Customer updateCustomerById(@PathVariable("customerId") int customerId, @RequestBody Customer customer){
-        return customerService.updateCustomerById(customerId, customer);
+    public ResponseEntity<Customer> updateCustomerById(@PathVariable("customerId") int customerId, @RequestBody Customer customer){
+        Customer customer1 = customerService.updateCustomerById(customerId, customer);
+        return new ResponseEntity<>(customer,HttpStatus.OK);
     }
 
     @GetMapping("/customers/{customerId}/cart")
@@ -174,8 +180,9 @@ public class CustomerController {
             @ApiResponse(responseCode = "404", description = "No data found"),
             @ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
     })
-    public List<CartItem> viewCustomerCart(@PathVariable("customerId") int customerId){
-        return customerService.viewCustomerCart(customerId);
+    public ResponseEntity<List<CartItem>> viewCustomerCart(@PathVariable("customerId") int customerId){
+        List<CartItem> cartItems = customerService.viewCustomerCart(customerId);
+        return new ResponseEntity<>(cartItems, HttpStatus.OK);
     }
 
     @PostMapping("/customers/{customerId}/cart")
@@ -213,8 +220,9 @@ public class CustomerController {
             @ApiResponse(responseCode = "404", description = "No data found"),
             @ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
     })
-    public List<CartItem> addCustomerCart(@PathVariable("customerId") int customerId, @RequestBody List<CartItem> cartItems){
-        return customerService.addCustomerCart(customerId, cartItems);
+    public ResponseEntity<List<CartItem>> addCustomerCart(@PathVariable("customerId") int customerId, @RequestBody List<CartItem> cartItems){
+        List<CartItem> cartItems1 = customerService.addCustomerCart(customerId, cartItems);
+        return new ResponseEntity<>(cartItems1, HttpStatus.OK);
     }
 
     @DeleteMapping("/customers/{customerId}/cart/{cartItemId}")
@@ -226,8 +234,9 @@ public class CustomerController {
             @ApiResponse(responseCode = "404", description = "No data found"),
             @ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
     })
-    public CartItem deleteCartItemById(@PathVariable("customerId") int customerId, @PathVariable("cartItemId") int cartItemId){
-        return customerService.deleteCartItemById(customerId, cartItemId);
+    public ResponseEntity<CartItem> deleteCartItemById(@PathVariable("customerId") int customerId, @PathVariable("cartItemId") int cartItemId){
+        CartItem cartItem = customerService.deleteCartItemById(customerId, cartItemId);
+        return new ResponseEntity<>(cartItem, HttpStatus.OK);
     }
 
 }
