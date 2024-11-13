@@ -10,10 +10,13 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 //import org.springframework.data.jpa.repository.config.EnableJpaRepositories; 
 
 @SecurityScheme(name = "jwtAuth", scheme = "bearer", type = SecuritySchemeType.HTTP, in = SecuritySchemeIn.HEADER)
-@SpringBootApplication(scanBasePackages = {"com.group.an.dataService","com.group.an.authService"})
+@SpringBootApplication(scanBasePackages = {"com.group.an.dataService","com.group.an.authService","com.group.an.customerService"})
+//@EnableMongoRepositories(basePackages = "com.group.an.dataService.repositories")
 //@EnableJpaRepositories
 public class CustomerServiceApplication {
 
@@ -21,6 +24,7 @@ public class CustomerServiceApplication {
 		SpringApplication.run(CustomerServiceApplication.class, args);
 	}
 
+	@Bean
 	public OpenAPI customOpenAPIForCustomers(){
 		return new OpenAPI()
 				.info(new Info()

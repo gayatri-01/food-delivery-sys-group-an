@@ -3,15 +3,14 @@ package com.group.an.customerService.service;
 //import com.group.an.customerService.entity.CartItem;
 //import com.group.an.customerService.entity.Customer;
 import com.group.an.authService.security.JwtTokenUtil;
-import com.group.an.customerService.repository.CustomerRepository;
+//import com.group.an.customerService.repository.CustomerRepository;
+import com.group.an.dataService.repositories.CustomerRepository;
 import com.group.an.dataService.models.CartItem;
 import com.group.an.dataService.models.Customer;
 import com.group.an.dataService.models.Role;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -49,11 +48,11 @@ public class CustomerServiceImpl implements CustomerService {
         if (!userId.equals(customerId)){
             throw new AccessDeniedException("You are not authorized. You can view details only for your customer id : "+ userId);
         }
-        return customerRepository.findById((long)customerId);
+        return customerRepository.findById(customerId);
     }
 
     public Customer updateCustomerById(int customerId, Customer customer) {
-        Optional<Customer> customer1 = customerRepository.findById((long) customerId);
+        Optional<Customer> customer1 = customerRepository.findById(customerId);
         if(customer1.isPresent()){
             Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
             Role role = JwtTokenUtil.getRoleFromAuthContext();
@@ -91,7 +90,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public List<CartItem> viewCustomerCart(int customerId) {
-        Optional<Customer> customer = customerRepository.findById((long) customerId);
+        Optional<Customer> customer = customerRepository.findById(customerId);
         if(customer.isPresent()){
             Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
             Role role = JwtTokenUtil.getRoleFromAuthContext();
@@ -105,7 +104,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public List<CartItem> addCustomerCart(int customerId, List<CartItem> cartItems) {
-        Optional<Customer> customer = customerRepository.findById((long) customerId);
+        Optional<Customer> customer = customerRepository.findById(customerId);
         if(customer.isPresent()){
             Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
             Role role = JwtTokenUtil.getRoleFromAuthContext();
@@ -116,6 +115,7 @@ public class CustomerServiceImpl implements CustomerService {
             List<CartItem> originalCartItems = originalCustomer.getCart();
             //Arrays.stream(originalCustomer.getCart()).toList().add(cartItems.get(i));
             originalCartItems.addAll(cartItems);
+            customerRepository.save(originalCustomer);
             return originalCustomer.getCart();
             }
         return List.of();
@@ -124,7 +124,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     //to delete a cart item by customer id and cart id
     public CartItem deleteCartItemById(int customerId, int cartItemId) {
-        Optional<Customer> customer = customerRepository.findById((long) customerId);
+        Optional<Customer> customer = customerRepository.findById(customerId);
         if(customer.isPresent()){
             Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
             Role role = JwtTokenUtil.getRoleFromAuthContext();
