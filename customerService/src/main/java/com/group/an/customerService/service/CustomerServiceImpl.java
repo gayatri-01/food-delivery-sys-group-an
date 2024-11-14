@@ -45,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
     public Optional<Customer> getCustomerById(int customerId) {
         Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
         Role role = JwtTokenUtil.getRoleFromAuthContext();
-        if (!userId.equals(customerId)){
+        if (!userId.equals(customerId) && !role.equals(Role.ADMIN)){
             throw new AccessDeniedException("You are not authorized. You can view details only for your customer id : "+ userId);
         }
         return customerRepository.findById(customerId);
@@ -56,7 +56,7 @@ public class CustomerServiceImpl implements CustomerService {
         if(customer1.isPresent()){
             Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
             Role role = JwtTokenUtil.getRoleFromAuthContext();
-            if (!userId.equals(customerId)){
+            if (!userId.equals(customerId) && !role.equals(Role.ADMIN)){
                 throw new AccessDeniedException("You are not authorized. You can update only your details");
             }
             Customer originalCustomer = customer1.get();
@@ -94,7 +94,7 @@ public class CustomerServiceImpl implements CustomerService {
         if(customer.isPresent()){
             Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
             Role role = JwtTokenUtil.getRoleFromAuthContext();
-            if (!userId.equals(customerId)){
+            if (!userId.equals(customerId) && !role.equals(Role.ADMIN)){
                 throw new AccessDeniedException("You are not authorized. You can view only your cart");
             }
             Customer targetCustomer = customer.get();
@@ -108,7 +108,7 @@ public class CustomerServiceImpl implements CustomerService {
         if(customer.isPresent()){
             Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
             Role role = JwtTokenUtil.getRoleFromAuthContext();
-            if (!userId.equals(customerId)){
+            if (!userId.equals(customerId) && !role.equals(Role.ADMIN)){
                 throw new AccessDeniedException("You are not authorized. You can add to only your cart");
             }
             Customer originalCustomer = customer.get();
@@ -128,7 +128,7 @@ public class CustomerServiceImpl implements CustomerService {
         if(customer.isPresent()){
             Integer userId = JwtTokenUtil.getUserIdFromAuthContext();
             Role role = JwtTokenUtil.getRoleFromAuthContext();
-            if (!userId.equals(customerId)){
+            if (!userId.equals(customerId) && !role.equals(Role.ADMIN)){
                 throw new AccessDeniedException("You are not authorized. You can delete only from your cart");
             }
             Customer originalCustomer = customer.get();
