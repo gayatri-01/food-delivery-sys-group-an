@@ -11,6 +11,6 @@ RUN mvn clean package
 #
 FROM openjdk:17-alpine
 WORKDIR /app
-COPY --from=build /app/authService/target/orderService-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY --from=build /app/orderService/target/orderService-0.0.1-SNAPSHOT.jar /app/app.jar
 EXPOSE 43000
 ENTRYPOINT ["java","-jar","app.jar"]
