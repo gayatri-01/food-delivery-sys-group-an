@@ -1,4 +1,0 @@
-com\group\an\authService\AuthServiceApplicationTest.class
-com\group\an\authService\controller\AuthControllerTest.class
-com\group\an\authService\security\JwtTokenUtilTest.class
-com\group\an\authService\service\AuthServiceTest.class
