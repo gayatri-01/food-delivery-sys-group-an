@@ -40,7 +40,7 @@
 			<groupId>com.group.an</groupId>
 			<artifactId>authService</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<classifier>classes</classifier>
+<!--			<classifier>classes</classifier>-->
 		</dependency>
 
 	</dependencies>
