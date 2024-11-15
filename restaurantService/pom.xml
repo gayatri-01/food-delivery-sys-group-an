@@ -11,7 +11,7 @@
 	<groupId>com.group.an</groupId>
 	<artifactId>restaurantService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>restaurantService</name>
 	<description>App that delivers food</description>
 	<url/>
