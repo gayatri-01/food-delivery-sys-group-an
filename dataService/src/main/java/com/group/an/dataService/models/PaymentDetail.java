@@ -12,9 +12,11 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaymentDetail {
+    @Id
+    private int paymentDetailId;
     private String cardType;
     private String cardNumber;
     private LocalDateTime cardExpiry;
-    private long upiNumber;
+    private Long upiNumber;
     private String upiId;
 }

@@ -18,7 +18,7 @@ public class Customer {
     private String name;
     private String email;
     private String passwordHash;
-    private long contactNumber;
+    private Long contactNumber;
     private String deliveryAddress;
     private List<CartItem> cart;
     private PaymentDetail paymentDetail;
