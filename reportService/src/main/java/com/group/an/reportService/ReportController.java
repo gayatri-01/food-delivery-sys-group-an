@@ -15,7 +15,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
@@ -36,12 +36,26 @@ public class ReportController {
 	private OrderRepository orderRepository;
 
 	@GetMapping("/popular-restaurants")
+	@PreAuthorize("hasRole('ADMIN')")
+	@Tag(name = "API for Admins Only")
+	@Operation(summary = "Fetch popular restaurants", description = "Retrieve the data of popular restaurants", responses = {
+			@ApiResponse(responseCode = "200", description = "Successfully retrieved all the restaurants"),
+			@ApiResponse(responseCode = "401", description = "Unauthorized"),
+			@ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
+	})
 	public ResponseEntity<List<Restaurant>> getPopularRestaurants() {
 		List<Restaurant> allRestaurants = restaurantRepository.findTop5ByOrderByUserRatingsDesc();
 		return new ResponseEntity<>(allRestaurants, HttpStatus.OK);
 	}
 
 	@GetMapping("/delivery-time")
+	@PreAuthorize("hasRole('ADMIN')")
+	@Tag(name = "API for Admins Only")
+	@Operation(summary = "Fetch delivery time", description = "Retrieve the delivery time", responses = {
+			@ApiResponse(responseCode = "200", description = "Successfully retrieved all the restaurants"),
+			@ApiResponse(responseCode = "401", description = "Unauthorized"),
+			@ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
+	})
 	public ResponseEntity<Long> getAverageDeliveryTime() {
 		List<Order> allOrders = orderRepository.findAll();
 		Duration duration = Duration.ZERO;
@@ -57,6 +71,13 @@ public class ReportController {
 	}
 
 	@GetMapping("/order-trends")
+	@PreAuthorize("hasRole('ADMIN')")
+	@Tag(name = "API for Admins Only")
+	@Operation(summary = "Fetch order trends", description = "Retrieve the data for order trends", responses = {
+			@ApiResponse(responseCode = "200", description = "Successfully retrieved all the restaurants"),
+			@ApiResponse(responseCode = "401", description = "Unauthorized"),
+			@ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
+	})
 	public ResponseEntity<OrderTrend> getOrderTrends(@RequestParam(name = "startDate") LocalDateTime startDate,
 														   @RequestParam(name = "endDate") LocalDateTime endDate) {
 		OrderTrend orderTrend = new OrderTrend();
@@ -81,6 +102,13 @@ public class ReportController {
 	}
 
 	@GetMapping("/")
+	@PreAuthorize("hasRole('ADMIN')")
+	@Tag(name = "API for Admins Only")
+	@Operation(summary = "Fetch order by delivery status", description = "Retrieve the data for order delivery status", responses = {
+			@ApiResponse(responseCode = "200", description = "Successfully retrieved all the restaurants"),
+			@ApiResponse(responseCode = "401", description = "Unauthorized"),
+			@ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
+	})
 	public ResponseEntity<List<Order>> getOrdersByDeliveryStatus(@RequestParam(name = "delivery-status", required = false) String deliveryStatus,
 																 @RequestParam(name = "order-status", required = false) String orderStatus) {
 		List<Order> allOrders = new ArrayList<>();
@@ -92,6 +120,13 @@ public class ReportController {
 	}
 
 	@GetMapping("/health")
+	@PreAuthorize("hasRole('ADMIN')")
+	@Tag(name = "API for Admins Only")
+	@Operation(summary = "Fetch health status", description = "Retrieve the data for health", responses = {
+			@ApiResponse(responseCode = "200", description = "Successfully retrieved all the restaurants"),
+			@ApiResponse(responseCode = "401", description = "Unauthorized"),
+			@ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
+	})
 	public ResponseEntity<String> getAppHealth() {
 		return new ResponseEntity<>("UP", HttpStatus.OK);
 	}
