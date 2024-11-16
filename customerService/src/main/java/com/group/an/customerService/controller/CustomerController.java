@@ -30,7 +30,7 @@ public class CustomerController {
     private CustomerService customerService;
 
 
-    @GetMapping("/customers")
+    @GetMapping("/")
     @PreAuthorize("hasRole('ADMIN')")
     @Tag(name = "API for Admins Only")
     @Operation(summary = "Fetch all customers", description = "Retrieve all customers", responses = {
@@ -43,7 +43,7 @@ public class CustomerController {
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
-    @GetMapping("/customers/{customerId}")
+    @GetMapping("/{customerId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
     @Tag(name = "API for admins and customers")
     @Operation(summary = "Get a customer by Id", description = "Retrieve a particular customer based on Id", responses = {
@@ -57,7 +57,7 @@ public class CustomerController {
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
-    @PostMapping("/customers/{customerId}")
+    @PostMapping("/{customerId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
     @Tag(name = "API for customers and admins")
     @Operation(summary = "Update a customer", description = "Update a particular customer by Id", requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
@@ -113,7 +113,7 @@ public class CustomerController {
         return new ResponseEntity<>(customer,HttpStatus.OK);
     }
 
-    @GetMapping("/customers/{customerId}/cart")
+    @GetMapping("/{customerId}/cart")
     @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
     @Tag(name = "API for customers and admins")
     @Operation(summary = "View customer's cart", description = "view a particular customer's cart", responses = {
@@ -127,7 +127,7 @@ public class CustomerController {
         return new ResponseEntity<>(cartItems, HttpStatus.OK);
     }
 
-    @PostMapping("/customers/{customerId}/cart")
+    @PostMapping("/{customerId}/cart")
     @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
     @Tag(name = "API for customers and admins")
     @Operation(summary = "Add to customer's cart", description = "", requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
@@ -167,7 +167,7 @@ public class CustomerController {
         return new ResponseEntity<>(cartItems1, HttpStatus.OK);
     }
 
-    @DeleteMapping("/customers/{customerId}/cart/{cartItemId}")
+    @DeleteMapping("/{customerId}/cart/{cartItemId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
     @Tag(name = "API for customers and admins")
     @Operation(summary = "Delete customer's cart item", description = "Delete a particular customer's specific cart item by corresponding Ids", responses = {
