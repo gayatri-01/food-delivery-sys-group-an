@@ -45,7 +45,7 @@ public class CustomerController {
 
     @GetMapping("/{customerId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
-    @Tag(name = "API for admins and customers")
+    @Tag(name = "API for customers and admins")
     @Operation(summary = "Get a customer by Id", description = "Retrieve a particular customer based on Id", responses = {
          @ApiResponse(responseCode = "200", description = "Successfully retrieved customer") ,
          @ApiResponse(responseCode = "401", description = "Unauthorized"),
