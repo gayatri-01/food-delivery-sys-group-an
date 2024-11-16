@@ -9,6 +9,7 @@ import com.group.an.dataService.repositories.CustomerRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.MockitoAnnotations;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
@@ -27,6 +29,8 @@ public class CustomerServiceTest {
 
     @Mock
     private CustomerRepository customerRepository;
+
+    @InjectMocks
     private CustomerServiceImpl customerServiceImpl;
     Customer customer;
     List<Customer> customers;
@@ -48,36 +52,26 @@ public class CustomerServiceTest {
         cartItem = new CartItem(29,30,31);
         cartItems = Arrays.asList(cartItem);
         paymentDetail = new PaymentDetail(32, "NVB", "KSA969", LocalDateTime.now(), 89992005L, "Mitesh4567767");
-        customer = new Customer(133, "Mitesh", "Mitesh@gmail.com", "Mitesh4567767", 1023456789L, "Malaysia", cartItems, paymentDetail, true);
+        customer = new Customer(123, "Mitesh", "Mitesh@gmail.com", "Mitesh4567767", 1023456789L, "Malaysia", cartItems, paymentDetail, true);
         customers = Arrays.asList(customer);
         when(customerRepository.save(any(Customer.class))).thenReturn(customer);
         when(customerRepository.findAll()).thenReturn(customers);
-        when(customerRepository.findById(133)).thenReturn(Optional.ofNullable(customer));
-    }
-
-    @Test
-    void testSaveCustomer(){
-        mockedAuthUtils.when(JwtTokenUtil::getUserIdFromAuthContext).thenReturn(123);
-        mockedAuthUtils.when(JwtTokenUtil::getRoleFromAuthContext).thenReturn(Role.CUSTOMER);
-        cartItem = new CartItem(29,30,31);
-        cartItems = Arrays.asList(cartItem);
-        paymentDetail = new PaymentDetail(32, "NVB", "KSA969", LocalDateTime.now(), 89992005L, "Mitesh4567767");
-        customer = new Customer(133, "Mitesh", "Mitesh@gmail.com", "Mitesh4567767", 1023456789L, "Malaysia", cartItems, paymentDetail, true);
-        customers = Arrays.asList(customer);
-        Customer customer1 = customerServiceImpl.saveCustomer(customer);
-        assertEquals(customer, customer1);
+        when(customerRepository.findById(123)).thenReturn(Optional.ofNullable(customer));
     }
 
     @Test
     void testFetchAllCustomers(){
+        mockedAuthUtils.when(JwtTokenUtil::getUserIdFromAuthContext).thenReturn(123);
+        mockedAuthUtils.when(JwtTokenUtil::getRoleFromAuthContext).thenReturn(Role.ADMIN);
         List<Customer> listOfCustomers = customerServiceImpl.fetchAllCustomers();
         assertEquals(customers, listOfCustomers);
     }
 
+    @Test
     void testGetCustomerById(){
         mockedAuthUtils.when(JwtTokenUtil::getUserIdFromAuthContext).thenReturn(123);
         mockedAuthUtils.when(JwtTokenUtil::getRoleFromAuthContext).thenReturn(Role.CUSTOMER);
         Optional<Customer> returnedCustomer = customerServiceImpl.getCustomerById(123);
-        assertEquals(customer, returnedCustomer);
+        assertEquals(customer, returnedCustomer.get());
     }
 }

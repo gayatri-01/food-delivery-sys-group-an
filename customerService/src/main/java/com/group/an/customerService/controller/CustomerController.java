@@ -26,67 +26,9 @@ import java.util.Optional;
 @RequestMapping("/customers")
 public class CustomerController {
 
-    @RequestMapping("/hello")
-    @ResponseBody
-    public String helloFromCustomer(){
-        return "Hello From Customer";
-    }
-
-    @Autowired
+      @Autowired
     private CustomerService customerService;
 
-    @PostMapping("/customers")
-    @PreAuthorize("hasRole('ADMIN')")
-    @Tag(name = "API for Admins Only")
-    @Operation(summary = "Adding a customer", description = "Adding a new customer to the list of existing customers",
-            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                    description = "Add a customer payload",
-                    content = @Content(
-                            mediaType = "application/json",
-                            schema = @Schema(implementation = Customer.class),
-                            examples = @ExampleObject(
-                                    value = """
-                                            {
-                                                 "customerId": 133,
-                                                 "name": "Priyanka",
-                                                 "email": "Priyanka@gmail.com",
-                                                 "passwordHash": "sflklll",
-                                                 "contactNumber": 1234567890,
-                                                 "deliveryAddress": "Nigeria",
-                                                 "cart": [
-                                                     {
-                                                         "cartItemId": 15,
-                                                         "menuItemId": 16,
-                                                         "quantity": 17
-                                                     },
-                                                     {
-                                                         "cartItemId": 18,
-                                                         "menuItemId": 19,
-                                                         "quantity": 20
-                                                     }
-                                                 ],
-                                                 "paymentDetail": {
-                                                     "paymentDetailId": 2122,
-                                                     "cardType": "GKS",
-                                                     "cardNumber": "AHY6959",
-                                                     "cardExpiry": "2024-10-28T12:30:00.000",
-                                                     "upiNumber": 97547,
-                                                     "upiId": "Priyanka34678235"
-                                                 },
-                                             	"active":true
-                                             }"""
-                            )
-            )
-            ),
-            responses = {
-            @ApiResponse(responseCode = "201", description = "Customer created successfully"),
-            @ApiResponse(responseCode = "401", description = "Unauthorized"),
-            @ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
-    })
-    public ResponseEntity<Customer> saveCustomer(@RequestBody Customer customer){
-        Customer customer1 = customerService.saveCustomer(customer);
-        return new ResponseEntity<>(customer1, HttpStatus.CREATED);
-    }
 
     @GetMapping("/customers")
     @PreAuthorize("hasRole('ADMIN')")

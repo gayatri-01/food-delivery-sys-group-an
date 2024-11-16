@@ -21,17 +21,6 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerRepository customerRepository;
 
 
-    public Customer saveCustomer(Customer customer) {
-        if(Objects.nonNull(customer.getName()) && !"".equalsIgnoreCase(customer.getName()) &&
-                Objects.nonNull(customer.getEmail()) && !"".equalsIgnoreCase(customer.getEmail()) &&
-                Objects.nonNull(customer.getPasswordHash()) && !"".equalsIgnoreCase(customer.getPasswordHash()) &&
-                Objects.nonNull(customer.getContactNumber()) && (customer.getContactNumber().toString().length()==10) &&
-                Objects.nonNull(customer.getDeliveryAddress()) && !"".equalsIgnoreCase(customer.getDeliveryAddress())) {
-            return customerRepository.save(customer);
-        }
-
-        return customerRepository.save(customer);
-    }
 
     public List<Customer> fetchAllCustomers() {
         Integer userId = JwtTokenUtil.getUserIdFromAuthContext();

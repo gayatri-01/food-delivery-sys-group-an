@@ -10,7 +10,6 @@ import java.util.Optional;
 
 public interface CustomerService {
 
-    Customer saveCustomer(Customer customer);                                   // save a customer
     List<Customer> fetchAllCustomers();                                         // fetch all customers
     Optional<Customer> getCustomerById(int customerId);                         // get a customer by id
     Customer updateCustomerById(int customerId, Customer customer);             // updating customer by id
