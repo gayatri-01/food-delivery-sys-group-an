@@ -11,7 +11,7 @@
 	<groupId>com.group.an</groupId>
 	<artifactId>reportService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>reportService</name>
 	<description>App that delivers food</description>
 	<url/>
@@ -41,7 +41,6 @@
 			<groupId>com.group.an</groupId>
 			<artifactId>authService</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<classifier>classes</classifier>
 		</dependency>
 	</dependencies>
 
