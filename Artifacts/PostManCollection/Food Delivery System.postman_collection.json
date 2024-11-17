@@ -1,0 +1,1511 @@
+{
+	"info": {
+		"_postman_id": "681e165c-8049-4a50-99f8-69f4cbc9fcfd",
+		"name": "Food Delivery System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9784475"
+	},
+	"item": [
+		{
+			"name": "OrderService",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "GetOrders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ORDER_SERVICE}}/orders",
+									"host": [
+										"{{ORDER_SERVICE}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Customer_and_Admin",
+					"item": [
+						{
+							"name": "GetOrdersByCustomerId",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ1VTVE9NRVIiLCJ1c2VySWQiOjE4NDMsInN1YiI6IjE4NDMiLCJpYXQiOjE3MzA3MTU0OTcsImV4cCI6MTczMDczMzQ5N30.erCPNPm6ltft9XGsVBxp4DKVuLz3bq_6ZmPN8peyha0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ORDER_SERVICE}}/orders/customers?customerId=1843",
+									"host": [
+										"{{ORDER_SERVICE}}"
+									],
+									"path": [
+										"orders",
+										"customers"
+									],
+									"query": [
+										{
+											"key": "customerId",
+											"value": "1843"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetOrderAndDeliveryStatus",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ORDER_SERVICE}}/orders/status?orderId=120",
+									"host": [
+										"{{ORDER_SERVICE}}"
+									],
+									"path": [
+										"orders",
+										"status"
+									],
+									"query": [
+										{
+											"key": "orderId",
+											"value": "120"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PlaceOrder",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ1VTVE9NRVIiLCJ1c2VySWQiOjE4NDMsInN1YiI6IjE4NDMiLCJpYXQiOjE3MzA3MTg4MzgsImV4cCI6MTczMDczNjgzOH0.ubkqf94XcnLyotN1VfRXsaS9WQ02DRq_I-YfNV5ufDQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"customerId\": 1343,\r\n    \"restaurantId\": 202,\r\n    \"price\": 400,\r\n    \"orderItems\": [\r\n      { \"orderItemId\": 2, \"menuItemId\": 502, \"quantity\": 2, \"price\": 200 }\r\n    ]\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ORDER_SERVICE}}/orders",
+									"host": [
+										"{{ORDER_SERVICE}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{CUSTOMER_TOKEN}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "RestuarantOwner_Admin",
+					"item": [
+						{
+							"name": "GetOrdersByRestaurantId",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUkVTVEFVUkFOVF9PV05FUiIsInVzZXJJZCI6MjU3Miwic3ViIjoiMjU3MiIsImlhdCI6MTczMDcyMTY5NCwiZXhwIjoxNzMwNzM5Njk0fQ.TbQdOPUPWcosvPr6O5Z5SvmAE23Ut3i_TGT3gRCzrKc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ORDER_SERVICE}}/orders/restaurants?restaurantId=202",
+									"host": [
+										"{{ORDER_SERVICE}}"
+									],
+									"path": [
+										"orders",
+										"restaurants"
+									],
+									"query": [
+										{
+											"key": "restaurantId",
+											"value": "202"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateOrderStatus",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUkVTVEFVUkFOVF9PV05FUiIsInVzZXJJZCI6MjU3Miwic3ViIjoiMjU3MiIsImlhdCI6MTczMDcyNjg1MCwiZXhwIjoxNzMwNzQ0ODUwfQ.DS0gRbJZZC9JCOK91l6URTs5pdM6yK574nmQQ9yvLiY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"orderId\" : 369,\r\n    \"orderStatus\" : \"READY_FOR_DELIVERY\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ORDER_SERVICE}}/orders/orderStatus",
+									"host": [
+										"{{ORDER_SERVICE}}"
+									],
+									"path": [
+										"orders",
+										"orderStatus"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{RESTAURANT_OWNER_TOKEN}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "DeliveryPersonnel_and_Admin",
+					"item": [
+						{
+							"name": "GetOrdersByDeliveryStatus",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiREVMSVZFUllfUEVSU09OTkVMIiwidXNlcklkIjozOTU4LCJzdWIiOiIzOTU4IiwiaWF0IjoxNzMwNzI1NDg1LCJleHAiOjE3MzA3NDM0ODV9.mvh5LrJWB0d1mO5CryPsCIJy2B8Pi67MMhBgQbR53CM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ORDER_SERVICE}}/orders/deliveryStatus?deliveryStatus=PENDING",
+									"host": [
+										"{{ORDER_SERVICE}}"
+									],
+									"path": [
+										"orders",
+										"deliveryStatus"
+									],
+									"query": [
+										{
+											"key": "deliveryStatus",
+											"value": "PENDING"
+										}
+									]
+								},
+								"description": "\nThis endpoint retrieves the delivery status of orders with the specified status.\n\n### Request\n\n- Method: GET\n- URL: `http://localhost:42000/orders/deliveryStatus`\n- Query Parameters:\n  - deliveryStatus (string, required): The status of the delivery (e.g. PENDING).\n\n### Response\n\nThe response for this request is a JSON schema describing the structure of the delivery status data. The schema includes the properties and data types of the response object, providing a blueprint for the expected JSON format.\n"
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateDeliveryStatus",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiREVMSVZFUllfUEVSU09OTkVMIiwidXNlcklkIjozOTU4LCJzdWIiOiIzOTU4IiwiaWF0IjoxNzMwNzI1NDg1LCJleHAiOjE3MzA3NDM0ODV9.mvh5LrJWB0d1mO5CryPsCIJy2B8Pi67MMhBgQbR53CM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"orderId\" : 339,\r\n    \"personnelId\" : 3958,\r\n    \"deliveryStatus\" : \"DELIVERED\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ORDER_SERVICE}}/orders/deliveryStatus",
+									"host": [
+										"{{ORDER_SERVICE}}"
+									],
+									"path": [
+										"orders",
+										"deliveryStatus"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{DELIVERY_PERSONNEL_TOKEN}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "AuthService",
+			"item": [
+				{
+					"name": "All",
+					"item": [
+						{
+							"name": "RegisterCustomer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Akshay\",\r\n    \"email\": \"akshay@gmail.com\",\r\n    \"password\": \"1234\",\r\n    \"contactNumber\": 1234567890,    \r\n    \"deliveryAddress\": \"India\",\r\n    \"paymentDetail\": {\r\n        \"cardType\": \"RU\",\r\n        \"cardNumber\": \"HFKS67\",\r\n        \"cardExpiry\": \"2024-10-12T20:30\",\r\n        \"upiNumber\": 474538999,\r\n        \"upiId\": \"akshay4567\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/auth/register/customer",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"auth",
+										"register",
+										"customer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RegisterRestaurantOwner",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Alka\",\r\n    \"email\": \"alka@gmail.com\",\r\n    \"password\": \"1234\",\r\n    \"contactNumber\": 1234567890,\r\n    \"restaurantId\" : 202\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/auth/register/restaurantOwner",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"auth",
+										"register",
+										"restaurantOwner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RegisterDeliveryPersonnel",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Raju\",\r\n    \"email\": \"raju@gmail.com\",\r\n    \"password\": \"1234\",\r\n    \"contactNumber\": 1234567890,    \r\n    \"vehicleType\": \"BIKE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/auth/register/deliveryPersonnel",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"auth",
+										"register",
+										"deliveryPersonnel"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RegisterAdmin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Jim\",\r\n    \"email\": \"jim@gmail.com\",\r\n    \"password\": \"1234\",\r\n    \"contactNumber\": 1234567890\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/auth/register/admin",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"auth",
+										"register",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LoginCustomer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\" : 1843,\r\n    \"password\" : \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/auth/login/customer",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"auth",
+										"login",
+										"customer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LoginRestaurantOwner",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\" : 2572,\r\n    \"password\" : \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/auth/login/restaurantOwner",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"auth",
+										"login",
+										"restaurantOwner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LoginDeliveryPersonnel",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\" : 3958,\r\n    \"password\" : \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/auth/login/deliveryPersonnel",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"auth",
+										"login",
+										"deliveryPersonnel"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LoginAdmin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\" : 4281,\r\n    \"password\" : \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/auth/login/admin",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"auth",
+										"login",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "ActivateUser",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJ1c2VySWQiOjQyODEsInN1YiI6IjQyODEiLCJpYXQiOjE3MzA3MTg4MDAsImV4cCI6MTczMDczNjgwMH0.6juc1dMCzHaGQlBAdv8CQ8_kotxZ4dVQYF3bPbYtq68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\" : \"CUSTOMER\",\r\n    \"userId\" : 1843\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/auth/activate",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"auth",
+										"activate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeactivateUser",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJ1c2VySWQiOjQyODEsInN1YiI6IjQyODEiLCJpYXQiOjE3MzA3MTg4MDAsImV4cCI6MTczMDczNjgwMH0.6juc1dMCzHaGQlBAdv8CQ8_kotxZ4dVQYF3bPbYtq68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\" : \"RESTAURANT_OWNER\",\r\n    \"userId\" : 2574\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/auth/deactivate",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"auth",
+										"deactivate"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ReportService",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "reports/popular-restaurants",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJ1c2VySWQiOjQ0MTYsInN1YiI6IjQ0MTYiLCJpYXQiOjE3MzE4MjI3NzUsImV4cCI6MTczMTg0MDc3NX0.Syxdov8DGWNyfGZ8r05_M35ahpv3SamEN6VFpxuboWY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{REPORT_SERVICE}}/reports/popular-restaurants",
+									"host": [
+										"{{REPORT_SERVICE}}"
+									],
+									"path": [
+										"reports",
+										"popular-restaurants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reports/order-trends",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJ1c2VySWQiOjQ0MTYsInN1YiI6IjQ0MTYiLCJpYXQiOjE3MzE4MjI3NzUsImV4cCI6MTczMTg0MDc3NX0.Syxdov8DGWNyfGZ8r05_M35ahpv3SamEN6VFpxuboWY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{REPORT_SERVICE}}/reports/order-trends?startDate=2024-10-01T00:00:00&endDate=2024-11-30T00:00:00",
+									"host": [
+										"{{REPORT_SERVICE}}"
+									],
+									"path": [
+										"reports",
+										"order-trends"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "2024-10-01T00:00:00"
+										},
+										{
+											"key": "endDate",
+											"value": "2024-11-30T00:00:00"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reports/delivery-time",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJ1c2VySWQiOjQ0MTYsInN1YiI6IjQ0MTYiLCJpYXQiOjE3MzE4MjI3NzUsImV4cCI6MTczMTg0MDc3NX0.Syxdov8DGWNyfGZ8r05_M35ahpv3SamEN6VFpxuboWY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{REPORT_SERVICE}}/reports/delivery-time",
+									"host": [
+										"{{REPORT_SERVICE}}"
+									],
+									"path": [
+										"reports",
+										"delivery-time"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reports/health",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJ1c2VySWQiOjQ0MTYsInN1YiI6IjQ0MTYiLCJpYXQiOjE3MzE4MjI3NzUsImV4cCI6MTczMTg0MDc3NX0.Syxdov8DGWNyfGZ8r05_M35ahpv3SamEN6VFpxuboWY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{REPORT_SERVICE}}/reports/health",
+									"host": [
+										"{{REPORT_SERVICE}}"
+									],
+									"path": [
+										"reports",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reports/active-users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJ1c2VySWQiOjQ0MTYsInN1YiI6IjQ0MTYiLCJpYXQiOjE3MzE4MjI3NzUsImV4cCI6MTczMTg0MDc3NX0.Syxdov8DGWNyfGZ8r05_M35ahpv3SamEN6VFpxuboWY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{REPORT_SERVICE}}/reports/active-users",
+									"host": [
+										"{{REPORT_SERVICE}}"
+									],
+									"path": [
+										"reports",
+										"active-users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reports/",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJ1c2VySWQiOjQ0MTYsInN1YiI6IjQ0MTYiLCJpYXQiOjE3MzE4MjI3NzUsImV4cCI6MTczMTg0MDc3NX0.Syxdov8DGWNyfGZ8r05_M35ahpv3SamEN6VFpxuboWY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{REPORT_SERVICE}}/reports/?delivery-status=DELIVERED&order-status=PLACED",
+									"host": [
+										"{{REPORT_SERVICE}}"
+									],
+									"path": [
+										"reports",
+										""
+									],
+									"query": [
+										{
+											"key": "delivery-status",
+											"value": "DELIVERED"
+										},
+										{
+											"key": "order-status",
+											"value": "PLACED"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "RestaurantService",
+			"item": [
+				{
+					"name": "All",
+					"item": [
+						{
+							"name": "restaurants",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{RESTAURANT_SERVICE}}/restaurants",
+									"host": [
+										"{{RESTAURANT_SERVICE}}"
+									],
+									"path": [
+										"restaurants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restaurants/{restaurantId}/menu",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{RESTAURANT_SERVICE}}/restaurants/2/menu",
+									"host": [
+										"{{RESTAURANT_SERVICE}}"
+									],
+									"path": [
+										"restaurants",
+										"2",
+										"menu"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "restaurants",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"restaurantId\": 1,\r\n  \"ownerId\": 1,\r\n  \"name\": \"Shyam Dhaba\",\r\n  \"address\": \"12, Nagar Highway, Nagpur\",\r\n  \"phoneNumber\": 2345678976,\r\n  \"openingTime\": \"2024-11-10T17:20:10.688Z\",\r\n  \"closingTime\": \"2024-11-10T17:20:10.688Z\",\r\n  \"userRatings\": 3,\r\n  \"menus\": [\r\n    {\r\n      \"menuItemId\": 2,\r\n      \"itemName\": \"Veg. Kolhapuri\",\r\n      \"description\": \"Red Spicy Vegetable curry\",\r\n      \"price\": 180,\r\n      \"available\": true\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RESTAURANT_SERVICE}}/restaurants",
+									"host": [
+										"{{RESTAURANT_SERVICE}}"
+									],
+									"path": [
+										"restaurants"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "RestaurantOwner_and_Admin",
+					"item": [
+						{
+							"name": "restaurants/{restaurantId}/menu",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"menuItemId\": 3,\r\n  \"itemName\": \"Veg. Handi\",\r\n  \"description\": \"Brown Medium Spicy Vegetable curry\",\r\n  \"price\": 150,\r\n  \"available\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RESTAURANT_SERVICE}}/restaurants/1/menu",
+									"host": [
+										"{{RESTAURANT_SERVICE}}"
+									],
+									"path": [
+										"restaurants",
+										"1",
+										"menu"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restaurants/{restaurantId}/menu/{menuItemId}",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"menuItemId\": 3,\r\n  \"itemName\": \"Veg. Handi\",\r\n  \"description\": \"Brown Medium Spicy Vegetable curry\",\r\n  \"price\": 150,\r\n  \"available\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RESTAURANT_SERVICE}}/restaurants/1/menu/3",
+									"host": [
+										"{{RESTAURANT_SERVICE}}"
+									],
+									"path": [
+										"restaurants",
+										"1",
+										"menu",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restaurants/{restaurantId}/menu/{menuItemId}",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"menuItemId\": 3,\r\n  \"itemName\": \"Veg. Handi\",\r\n  \"description\": \"Brown Medium Spicy Vegetable curry\",\r\n  \"price\": 150,\r\n  \"available\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RESTAURANT_SERVICE}}/restaurants/1/menu/3",
+									"host": [
+										"{{RESTAURANT_SERVICE}}"
+									],
+									"path": [
+										"restaurants",
+										"1",
+										"menu",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{RESTAURANT_OWNER_TOKEN}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "CustomerService",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "customers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CUSTOMER_SERVICE}}/customers/",
+									"host": [
+										"{{CUSTOMER_SERVICE}}"
+									],
+									"path": [
+										"customers",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Customer_and_Admin",
+					"item": [
+						{
+							"name": "customers/{customerId}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CUSTOMER_SERVICE}}/customers/1",
+									"host": [
+										"{{CUSTOMER_SERVICE}}"
+									],
+									"path": [
+										"customers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "customers/{customerId}/cart",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CUSTOMER_SERVICE}}/customers/1/cart",
+									"host": [
+										"{{CUSTOMER_SERVICE}}"
+									],
+									"path": [
+										"customers",
+										"1",
+										"cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "customers/{customerId}",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customerId\": 133,\r\n  \"name\": \"Mitesh\",\r\n  \"email\": \"Mitesh@gmail.com\",\r\n  \"passwordHash\": \"Mitesh4567767\",\r\n  \"contactNumber\": 1023456789,\r\n  \"deliveryAddress\": \"Malaysia\",\r\n  \"cart\": [\r\n    {\r\n      \"cartItemId\": 23,\r\n      \"menuItemId\": 24,\r\n      \"quantity\": 25\r\n    },\r\n    {\r\n      \"cartItemId\": 26,\r\n      \"menuItemId\": 27,\r\n      \"quantity\": 28\r\n    },\r\n    {\r\n      \"cartItemId\": 29,\r\n      \"menuItemId\": 30,\r\n      \"quantity\": 31\r\n    }\r\n  ],\r\n  \"paymentDetail\": {\r\n    \"paymentDetailId\": 32,\r\n    \"cardType\": \"NVB\",\r\n    \"cardNumber\": \"KSA969\",\r\n    \"cardExpiry\": \"2024-10-28T15:30:00.000\",\r\n    \"upiNumber\": 89992005,\r\n    \"upiId\": \"Mitesh4567767\"\r\n  },\r\n  \"active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CUSTOMER_SERVICE}}/customers/1",
+									"host": [
+										"{{CUSTOMER_SERVICE}}"
+									],
+									"path": [
+										"customers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "customers/{customerId}/cart",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"cartItemId\": 33,\r\n    \"menuItemId\": 34,\r\n    \"quantity\": 35\r\n  },\r\n  {\r\n    \"cartItemId\": 36,\r\n    \"menuItemId\": 37,\r\n    \"quantity\": 38\r\n  },\r\n  {\r\n    \"cartItemId\": 39,\r\n    \"menuItemId\": 40,\r\n    \"quantity\": 41\r\n  }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CUSTOMER_SERVICE}}/customers/1/cart",
+									"host": [
+										"{{CUSTOMER_SERVICE}}"
+									],
+									"path": [
+										"customers",
+										"1",
+										"cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "customers/{customerId}/cart",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"cartItemId\": 33,\r\n    \"menuItemId\": 34,\r\n    \"quantity\": 35\r\n  },\r\n  {\r\n    \"cartItemId\": 36,\r\n    \"menuItemId\": 37,\r\n    \"quantity\": 38\r\n  },\r\n  {\r\n    \"cartItemId\": 39,\r\n    \"menuItemId\": 40,\r\n    \"quantity\": 41\r\n  }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CUSTOMER_SERVICE}}/customers/1/cart/33",
+									"host": [
+										"{{CUSTOMER_SERVICE}}"
+									],
+									"path": [
+										"customers",
+										"1",
+										"cart",
+										"33"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{CUSTOMER_TOKEN}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ORDER_SERVICE",
+			"value": "https://fooddelivery-orderservice.onrender.com",
+			"type": "string"
+		},
+		{
+			"key": "AUTH_SERVICE",
+			"value": "https://fooddelivery-authservice.onrender.com",
+			"type": "string"
+		},
+		{
+			"key": "REPORT_SERVICE",
+			"value": "https://fooddelivery-reportservice.onrender.com",
+			"type": "string"
+		},
+		{
+			"key": "RESTAURANT_SERVICE",
+			"value": "https://fooddelivery-restaurantservice.onrender.com",
+			"type": "string"
+		},
+		{
+			"key": "CUSTOMER_SERVICE",
+			"value": "https://fooddelivery-customerservice.onrender.com",
+			"type": "string"
+		},
+		{
+			"key": "CUSTOMER_TOKEN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "RESTAURANT_OWNER_TOKEN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "DELIVERY_PERSONNEL_TOKEN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "ADMIN_TOKEN",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

@@ -3,14 +3,11 @@
 // Importing package in this code module 
 package com.group.an.reportService;
 // Importing required classes 
-import com.group.an.dataService.models.DeliveryStatus;
-import com.group.an.dataService.models.Order;
-import com.group.an.dataService.models.OrderStatus;
-import com.group.an.dataService.models.Restaurant;
-import com.group.an.dataService.repositories.OrderRepository;
-import com.group.an.dataService.repositories.RestaurantRepository;
+import com.group.an.dataService.models.*;
+import com.group.an.dataService.repositories.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,11 +18,14 @@ import org.springframework.web.bind.annotation.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 // Annotation 
 @RestController
 @RequestMapping("/reports")
+@SecurityRequirement(name = "jwtAuth")
 // Main class 
 public class ReportController {
 
@@ -34,6 +34,15 @@ public class ReportController {
 
 	@Autowired
 	private OrderRepository orderRepository;
+
+	@Autowired
+	private RestaurantOwnerRepository restaurantOwnerRepository;
+
+	@Autowired
+	private CustomerRepository customerRepository;
+
+	@Autowired
+	private DeliveryPersonnelRepository deliveryPersonnelRepository;
 
 	@GetMapping("/popular-restaurants")
 	@PreAuthorize("hasRole('ADMIN')")
@@ -51,7 +60,7 @@ public class ReportController {
 	@GetMapping("/delivery-time")
 	@PreAuthorize("hasRole('ADMIN')")
 	@Tag(name = "API for Admins Only")
-	@Operation(summary = "Fetch delivery time", description = "Retrieve the delivery time", responses = {
+	@Operation(summary = "Fetch the average delivery time", description = "Retrieve the delivery time", responses = {
 			@ApiResponse(responseCode = "200", description = "Successfully retrieved all the restaurants"),
 			@ApiResponse(responseCode = "401", description = "Unauthorized"),
 			@ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
@@ -104,7 +113,7 @@ public class ReportController {
 	@GetMapping("/")
 	@PreAuthorize("hasRole('ADMIN')")
 	@Tag(name = "API for Admins Only")
-	@Operation(summary = "Fetch order by delivery status", description = "Retrieve the data for order delivery status", responses = {
+	@Operation(summary = "Fetch order by delivery status & order status", description = "Retrieve the data for order delivery status", responses = {
 			@ApiResponse(responseCode = "200", description = "Successfully retrieved all the restaurants"),
 			@ApiResponse(responseCode = "401", description = "Unauthorized"),
 			@ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
@@ -129,5 +138,24 @@ public class ReportController {
 	})
 	public ResponseEntity<String> getAppHealth() {
 		return new ResponseEntity<>("UP", HttpStatus.OK);
+	}
+
+	@GetMapping("/active-users")
+	@PreAuthorize("hasRole('ADMIN')")
+	@Tag(name = "API for Admins Only")
+	@Operation(summary = "Fetch count of active users", description = "Retrieve the stats of all active users", responses = {
+			@ApiResponse(responseCode = "200", description = "Successfully retrieved all active users"),
+			@ApiResponse(responseCode = "401", description = "Unauthorized"),
+			@ApiResponse(responseCode = "500", description = "An error occurred while processing the request at the server side")
+	})
+	public ResponseEntity<Map<String,Integer>> getActiveUsers() {
+		List<Customer> customers = customerRepository.findByIsActive(true);
+		List<RestaurantOwner> restaurantOwners = restaurantOwnerRepository.findByIsActive(true);
+		List<DeliveryPersonnel> deliveryPersonnels = deliveryPersonnelRepository.findByIsActive(true);
+		Map<String,Integer> result = new HashMap<>();
+		result.put("Customers",customers.size());
+		result.put("Restaurant Owners",restaurantOwners.size());
+		result.put("Delivery Personnel",deliveryPersonnels.size());
+		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 }

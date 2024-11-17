@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+
 @SecurityScheme(name = "jwtAuth", scheme = "bearer", type = SecuritySchemeType.HTTP, in = SecuritySchemeIn.HEADER)
 @SpringBootApplication(scanBasePackages = {"com.group.an.dataService","com.group.an.restaurantService","com.group.an.authService","com.group.an.reportService"})
 //@EnableMongoRepositories(basePackages = "com.group.an.dataService.repositories")
@@ -18,12 +19,12 @@ public class ReportServiceApplication {
 		SpringApplication.run(ReportServiceApplication.class, args);
 	}
 	@Bean
-	public OpenAPI customOpenAPIForCustomers(){
+	public OpenAPI customOpenAPIForReports(){
 		return new OpenAPI()
 				.info(new Info()
-						.title("CustomerService API Documentation")
+						.title("ReportService API Documentation")
 						.version("1.0")
-						.description("APIs for Managing Customers in the Food Delivery System"));
+						.description("APIs for Reporting in the Food Delivery System"));
 	}
 }
 
