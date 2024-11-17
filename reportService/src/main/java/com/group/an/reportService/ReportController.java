@@ -155,7 +155,7 @@ public class ReportController {
 		Map<String,Integer> result = new HashMap<>();
 		result.put("Customers",customers.size());
 		result.put("Restaurant Owners",restaurantOwners.size());
-		result.put("Delivery Personnel",deliveryPersonnels.size());
+		result.put("Delivery Personnels",deliveryPersonnels.size());
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 }
